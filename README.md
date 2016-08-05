@@ -1,7 +1,5 @@
 # A-Frame Ball Throw
 
-![ballthrow](http://i.imgur.com/rZkN1Ca.gif)
-
 Work-in-progress.
 
 ### Local Development
