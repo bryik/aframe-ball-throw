@@ -1,6 +1,6 @@
 # A-Frame Ball Throw
 
-![ballthrow-gif](http://i.imgur.com/rZkN1Ca.gifv)
+![ballthrow](http://i.imgur.com/rZkN1Ca.gif)
 
 Work-in-progress.
 
