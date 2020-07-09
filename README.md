@@ -6,7 +6,7 @@
 
 Playable with **HTC Vive**.
 
-This repository contains a small demonstration of A-Frame with vive controllers and physics powered by [A-Frame Extras](https://github.com/donmccurdy/aframe-extras). Grab a ball and chuck it at the stack of boxes!
+This repository contains a small demonstration of A-Frame with vive controllers and physics powered by [A-Frame Extras](https://github.com/donmccurdy/aframe-extras) and [A-Frame Physics System](https://github.com/donmccurdy/aframe-physics-system). Grab a ball and chuck it at the stack of boxes!
 
 ### Expansion and Experimentation
 
@@ -18,21 +18,8 @@ Change the force of gravity from 1.6 m/s^2 (similar to the Moon), to 9.8 m/s^2 (
     <a-scene physics='gravity: -9.8' antialias='true'>
 ```
 
-### Local Development
+### Running locally
 
-To serve the site from a simple Node development server:
-
-    npm start
-
-Then launch the site from your favourite browser:
-
-[__http://localhost:3000/__](http://localhost:3000/)
-
-If you wish to serve the site from a different port:
-
-    PORT=8000 npm start
-
-
-## License
-
-This program is free software and is distributed under an [MIT License](LICENSE).
+```bash
+npm start
+```
