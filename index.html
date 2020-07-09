@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <title>A-Frame Ball Throw</title>
     <meta name="description" content="A-Frame Ball Throw">
-    <script src="lib/aframe.min.js"></script>
-    <script src="lib/aframe-extras.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
   </head>
   <body>
     <!-- Moon gravity -->
-    <a-scene physics='gravity: -1.6' antialias='true'>
+    <a-scene physics='gravity: -1.6' renderer="antialias: true">
 
       <!-- Player -->
       <a-entity camera look-controls wasd-controls></a-entity>
