@@ -23,3 +23,13 @@ Change the force of gravity from 1.6 m/s^2 (similar to the Moon), to 9.8 m/s^2 (
 ```bash
 npm start
 ```
+
+Open the URL `https://192.168.1.11:3000/` in Firefox and bypass the scary "certificate invalid" warning. WebVR seems to require `https` and achieving this on localhost involves generating a certificate (one that the browser won't automatically trust).
+
+### Troubleshooting
+
+#### The height is off
+
+As of July 2020, I think Firefox computes height offset based on the headset's position at the time "Enter VR" is pressed. So if you enter VR with the headset on the floor, you'll be either too tall or too short. It seems to work better if you press "Enter VR" while wearing the headset.
+
+
