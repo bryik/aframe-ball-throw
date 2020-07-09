@@ -1,38 +1,110 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>A-Frame Ball Throw</title>
-    <meta name="description" content="A-Frame Ball Throw">
+    <meta name="description" content="A-Frame Ball Throw" />
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
   </head>
   <body>
     <!-- Moon gravity -->
-    <a-scene physics='gravity: -1.6' renderer="antialias: true">
-
+    <a-scene physics="gravity: -1.6" renderer="antialias: true">
       <!-- Player -->
       <a-entity camera look-controls wasd-controls></a-entity>
-      <a-entity id="leftController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: left" sphere-collider="objects: .throwable" grab></a-entity>
-      <a-entity id="rightController" static-body="shape: sphere; sphereRadius: 0.02;" vive-controls="hand: right" sphere-collider="objects: .throwable" grab></a-entity>
+      <a-entity
+        id="leftController"
+        static-body="shape: sphere; sphereRadius: 0.02;"
+        vive-controls="hand: left"
+        sphere-collider="objects: .throwable"
+        grab
+      ></a-entity>
+      <a-entity
+        id="rightController"
+        static-body="shape: sphere; sphereRadius: 0.02;"
+        vive-controls="hand: right"
+        sphere-collider="objects: .throwable"
+        grab
+      ></a-entity>
 
       <!-- Ammo -->
-      <a-sphere class="throwable" dynamic-body position="0 0.25 -0.5" radius="0.10" color="green"></a-sphere>
-      <a-sphere class="throwable" dynamic-body position="0.25 0.25 -0.5" radius="0.10" color="green"></a-sphere>
-      <a-sphere class="throwable" dynamic-body position="-0.25 0.25 -0.5" radius="0.10" color="green"></a-sphere>
+      <a-sphere
+        class="throwable"
+        dynamic-body
+        position="0 0.25 -0.5"
+        radius="0.10"
+        color="green"
+      ></a-sphere>
+      <a-sphere
+        class="throwable"
+        dynamic-body
+        position="0.25 0.25 -0.5"
+        radius="0.10"
+        color="green"
+      ></a-sphere>
+      <a-sphere
+        class="throwable"
+        dynamic-body
+        position="-0.25 0.25 -0.5"
+        radius="0.10"
+        color="green"
+      ></a-sphere>
 
-      <!-- Stack of boxes (generated beforehand with D3) -->
-      <a-entity id="boxStack" position="2 1.1 0" rotation="" scale="" visible=""><a-box material="color:rgb(110, 64, 170)" geometry="primitive:box;width:1;height:0.1;depth:1" quaternion="0.00015889758944550504 0.0015115066415989898 -0.000041206660046772106 0.999998844199952" velocity="" dynamic-body="" class="throwable" width="1" height="0.1" depth="1" color="rgb(110, 64, 170)" position="-0.40090947244234987 -0.000357202877238727 0.00006624150135397924" rotation="" scale="" visible=""></a-box><a-box material="color:rgb(191, 60, 175)" geometry="primitive:box;width:0.9;height:0.1;depth:0.9" quaternion="0.00042085980478977236 0.001189764577010195 -0.00011004054201745217 0.9999991976138557" velocity="" dynamic-body="" class="throwable" width="0.9" height="0.1" depth="0.9" color="rgb(191, 60, 175)" position="-0.398908408323839 0.09924608593716044 0.00032447360163604993" rotation="" scale="" visible=""></a-box><a-box material="color:rgb(254, 75, 131)" geometry="primitive:box;width:0.8;height:0.1;depth:0.8" quaternion="0.0006835715094552572 0.001148452777539298 -0.00018172962382259899 0.9999990903798628" velocity="" dynamic-body="" class="throwable" width="0.8" height="0.1" depth="0.8" color="rgb(254, 75, 131)" position="-0.3987877914186546 0.19888346238764698 0.0035537099340999137" rotation="" scale="" visible=""></a-box><a-box material="color:rgb(255, 120, 71)" geometry="primitive:box;width:0.7000000000000001;height:0.1;depth:0.7000000000000001" quaternion="0.0009438779224195072 0.0033718730218844444 -0.0002591967615118824 0.999993836172919" velocity="" dynamic-body="" class="throwable" width="0.7000000000000001" height="0.1" depth="0.7000000000000001" color="rgb(255, 120, 71)" position="-0.3999136359297659 0.2985653954465046 0.006050759980436843" rotation="" scale="" visible=""></a-box><a-box material="color:rgb(226, 183, 47)" geometry="primitive:box;width:0.6000000000000001;height:0.1;depth:0.6000000000000001" quaternion="0.0011944759393799791 0.0031650894465781476 -0.00035298460519786007 0.9999942154022163" velocity="" dynamic-body="" class="throwable" width="0.6000000000000001" height="0.1" depth="0.6000000000000001" color="rgb(226, 183, 47)" position="-0.40304767860557145 0.3982963916523399 0.00904659385629302" rotation="" scale="" visible=""></a-box><a-box material="color:rgb(175, 240, 91)" geometry="primitive:box;width:0.5;height:0.1;depth:0.5" quaternion="0.0014237952357793746 0.00751982483521209 -0.0004454253156931839 0.9999706128871301" velocity="" dynamic-body="" class="throwable" width="0.5" height="0.1" depth="0.5" color="rgb(175, 240, 91)" position="-0.4013161416232678 0.49807233986770494 0.01357617171631715" rotation="" scale="" visible=""></a-box><a-box material="color:rgb(82, 246, 103)" geometry="primitive:box;width:0.4;height:0.1;depth:0.4" quaternion="0.00160016584919852 -0.0010329960648397924 -0.0005777056565872084 0.9999980193203182" velocity="" dynamic-body="" class="throwable" width="0.4" height="0.1" depth="0.4" color="rgb(82, 246, 103)" position="-0.40364309751070193 0.5978970491569848 0.0204877735489246" rotation="" scale="" visible=""></a-box><a-box material="color:rgb(29, 223, 163)" geometry="primitive:box;width:0.30000000000000004;height:0.1;depth:0.30000000000000004" quaternion="0.0017632602609601812 -0.0016263520851277431 -0.0007495899176989593 0.999996841998565" velocity="" dynamic-body="" class="throwable" width="0.30000000000000004" height="0.1" depth="0.30000000000000004" color="rgb(29, 223, 163)" position="-0.4057925152192916 0.6978312100658155 0.011204163873775368" rotation="" scale="" visible=""></a-box><a-box material="color:rgb(35, 171, 216)" geometry="primitive:box;width:0.2;height:0.1;depth:0.2" quaternion="0.0018015921182522677 -0.0025188875851536586 -0.0008986907029266274 0.9999948008995814" velocity="" dynamic-body="" class="throwable" width="0.2" height="0.1" depth="0.2" color="rgb(35, 171, 216)" position="-0.41145742000523855 0.7978174834737253 0.002146608479509419" rotation="" scale="" visible=""></a-box><a-box material="color:rgb(76, 110, 219)" geometry="primitive:box;width:0.1;height:0.1;depth:0.1" quaternion="0.9788072736334901 -0.0004011357530171473 -0.204775184888599 -0.001812133030980036" velocity="" dynamic-body="" class="throwable" width="0.1" height="0.1" depth="0.1" color="rgb(76, 110, 219)" position="-0.3467180714362339 0.8976895241540228 -0.01487019593023657" rotation="" scale="" visible=""></a-box></a-entity>
+      <!--Table to hold the targets -->
+      <a-box
+        static-body
+        position="2 1 0"
+        width="2"
+        height="0.1"
+        depth="2"
+        color="grey"
+      ></a-box>
 
-      <!--table -->
-      <a-box static-body position="2 1 0" width="2" height="0.1" depth="2" color="grey"></a-box>
+      <!-- The targets (will be generated with D3) -->
+      <a-entity id="boxes"></a-entity>
 
       <!-- Ground -->
-      <a-plane static-body rotation="-90 0 0" width="10" height="10" color="black"></a-plane>
+      <a-plane
+        static-body
+        rotation="-90 0 0"
+        width="10"
+        height="10"
+        color="black"
+      ></a-plane>
 
       <!-- Sky -->
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
   </body>
+
+  <script>
+    const colorScale = d3.scaleSequential(d3.interpolatePlasma);
+    const dataset = [];
+  
+    for (let i = 10; i > 0; i--) {
+      dataset.push(i);
+    }
+  
+    let boxes = d3.select('#boxes');
+    boxes.selectAll('a-box')
+         .data(dataset)
+         .enter()
+         .append('a-box')
+         .attr('height', '0.1')
+         .attr('width', function(d, i) {
+           return String(0.1 * d);
+         })
+         .attr('depth', function(d, i) {
+           return String(0.1 * d);
+         })
+         .attr('color', function(d, i) {
+           return colorScale(i / 10);
+         })
+         .attr('position', function(d, i) {
+           return '2 ' + (i * 0.1 + 1.1) + ' 0';
+         })
+         .attr('dynamic-body', '');
+  </script>
 </html>

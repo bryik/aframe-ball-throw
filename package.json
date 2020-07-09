@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "license": "MIT",
   "scripts": {
-    "start": "budo --live --verbose --port 3000 --open --ssl"
+    "start": "budo --live --verbose --port 3000 --ssl"
   },
   "devDependencies": {
     "budo": "^11.6.4"
