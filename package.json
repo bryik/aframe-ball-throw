@@ -7,7 +7,7 @@
     "start": "budo --live --verbose --port 3000 --ssl"
   },
   "devDependencies": {
-    "budo": "^11.6.4"
+    "budo": "^11.8.4"
   },
   "keywords": [
     "aframe",
